@@ -109,17 +109,29 @@ cursor: pointer;
 
             update();
         }
+function update() {
+    // Update score
+    document.querySelector('.js-score').innerHTML = 
+        `Wins: ${score.wins}, Loses: ${score.lose}, Ties: ${score.ties}`;
+    
+    // Update result
+    document.querySelector('.js-result').innerHTML = result;
 
-        function update() {
-            document.querySelector('.js-score').innerHTML = 
-                `Wins: ${score.wins}, Loses: ${score.lose}, Ties: ${score.ties}`;
-            document.querySelector('.js-result').innerHTML = result;
-            document.querySelector('.js-move').innerHTML = 
-                `You
-<img src="photos/${userChoice}-emoji.png" alt="" class="rock">
-<img src="photos/${computerChoice}-emoji.png" alt="" class="rock">
-computer`
-        }
+    // Map choices to image URLs
+    const imageMap = {
+        rock: "https://i.postimg.cc/rpXRmbNY/rock-emoji.png",
+        paper: "https://i.postimg.cc/wjSLN3gQ/paper-emoji.png",
+        scissors: "https://i.postimg.cc/4NjmLMqC/scissors-emoji.png"
+    };
+
+    // Update moves
+    document.querySelector('.js-move').innerHTML = 
+        `You
+        <img src="${imageMap[userChoice]}" alt="${userChoice}" class="rock">
+        <img src="${imageMap[computerChoice]}" alt="${computerChoice}" class="rock">
+        Computer`;
+}
+
         
 function resetScore(){
     score.lose=0,
@@ -135,5 +147,6 @@ function resetScore(){
 
 </body>
 </html>
+
 
 
