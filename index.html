@@ -3,18 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dhanush's portfolio</title>
+  <title>Dhanush's Portfolio</title>
   <style>
     body {
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
       margin: 0;
       background: linear-gradient(270deg, #ffb347, #ff6f61, #d36df3, #ffb347);
       background-size: 600% 600%;
       animation: moveBackground 12s ease infinite;
       font-family: Arial, sans-serif;
+      padding: 15px; /* for small screens */
+      box-sizing: border-box;
     }
 
     @keyframes moveBackground {
@@ -24,26 +26,30 @@
     }
 
     .box {
-      width: 650px;
-      height: 200px;
+      width: 100%;
+      max-width: 650px;
       border-radius: 20px;
       background: #fff;
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 25px; /* spacing between buttons */
+      flex-wrap: wrap; /* allows wrapping on small screens */
+      gap: 20px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
       padding: 20px;
     }
 
     .btn {
-      padding: 12px 30px;
+      flex: 1 1 40%; /* buttons resize based on screen */
+      min-width: 120px;
+      padding: 12px 20px;
       border: none;
       border-radius: 10px;
       background: linear-gradient(135deg, #ff6f61, #d36df3);
       color: #fff;
       font-size: 16px;
       cursor: pointer;
+      text-align: center;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
@@ -51,29 +57,39 @@
       transform: scale(1.05);
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
+
+    /* Small screens (mobile) */
+    @media (max-width: 500px) {
+      .box {
+        flex-direction: column;
+      }
+      .btn {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="box">
     <button class="btn" data-page="about.html">About</button>
-<button class="btn" data-page="skills.html">Skills</button>
-<button class="btn" data-page="projects.html">Projects</button>
-<button class="btn" data-page="education.html">Education</button>
-
+    <button class="btn" data-page="skills.html">Skills</button>
+    <button class="btn" data-page="projects.html">Projects</button>
+    <button class="btn" data-page="education.html">Education</button>
   </div>
+
   <script>
-  const buttons = document.querySelectorAll(".btn");
-
-  buttons.forEach(button => {
-    button.addEventListener("click", () => {
-      const page = button.getAttribute("data-page");
-      window.location.href = page; // navigate to the page
+    const buttons = document.querySelectorAll(".btn");
+    buttons.forEach(button => {
+      button.addEventListener("click", () => {
+        const page = button.getAttribute("data-page");
+        window.location.href = page;
+      });
     });
-  });
-</script>
-
+  </script>
 </body>
 </html>
+
+
 
 
 
