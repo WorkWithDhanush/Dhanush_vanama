@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Education Timeline</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
+      margin: 0;
+      padding: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2.5rem;
+      color: #38bdf8;
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    /* Vertical line */
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      background-color: #38bdf8;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -3px;
+    }
+
+    .container {
+      padding: 20px 40px;
+      position: relative;
+      width: 50%;
+    }
+
+    /* Circles on timeline */
+    .container::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      right: -10px;
+      background-color: #38bdf8;
+      border: 3px solid #0f172a;
+      top: 25px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .left {
+      left: 0;
+    }
+
+    .right {
+      left: 50%;
+    }
+
+    .right::after {
+      left: -10px;
+    }
+
+    .content {
+      padding: 20px;
+      background-color: #1e293b;
+      position: relative;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .content:hover {
+      transform: translateY(-5px);
+    }
+
+    .edu-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #facc15;
+    }
+
+    .edu-institute {
+      font-size: 1rem;
+      margin: 8px 0;
+      color: #f1f5f9;
+    }
+
+    .edu-year {
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+
+    .edu-score {
+      font-size: 1rem;
+      color: #4ade80;
+      margin-top: 6px;
+    }
+
+    /* Responsive */
+    @media screen and (max-width: 768px) {
+      .timeline::after {
+        left: 20px;
+      }
+      .container {
+        width: 100%;
+        padding-left: 60px;
+        padding-right: 25px;
+      }
+      .container::after {
+        left: 15px;
+      }
+      .right {
+        left: 0%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>My Education Timeline</h1>
+
+  <div class="timeline">
+    <!-- SSC -->
+    <div class="container left">
+      <div class="content">
+        <div class="edu-title">Secondary School (SSC)</div>
+        <div class="edu-institute">Little Angels Public School</div>
+        <div class="edu-year">Completed: 2022</div>
+        <div class="edu-score">Percentage: 91%</div>
+      </div>
+    </div>
+
+    <!-- Intermediate -->
+    <div class="container right">
+      <div class="content">
+        <div class="edu-title">Intermediate (MPC)</div>
+        <div class="edu-institute">Narayana Junior College</div>
+        <div class="edu-year">Completed: 2024</div>
+        <div class="edu-score">Percentage: 97%</div>
+      </div>
+    </div>
+
+    <!-- B.Tech -->
+    <div class="container left">
+      <div class="content">
+        <div class="edu-title">B.Tech</div>
+        <div class="edu-institute">R.V.R & J.C College of Engineering</div>
+        <div class="edu-year">Expected: 2028</div>
+        <div class="edu-score">Percentage: 95%</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
