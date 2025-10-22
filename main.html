@@ -165,27 +165,29 @@
     </div>
   </div>
 
-  <script>
-    function calculateCGPA() {
-      let sum = 0, count = 0;
+<script>
+  function calculateCGPA() {
+    let sum = 0, count = 0;
 
-      for (let i = 1; i <= 8; i++) {
-        let val = parseFloat(document.getElementById("s" + i).value);
-        if (!isNaN(val) && val >= 0) {
-          sum += val;
-          count++;
-        }
-      }
-
-      if (count > 0) {
-        let cgpa = sum / count;
-        document.getElementById("result").innerText =
-          "🎓 Your Overall CGPA is: " + cgpa.toFixed(3);
-      } else {
-        document.getElementById("result").innerText =
-          "⚠️ Please enter at least one SGPA.";
+    for (let i = 1; i <= 8; i++) {
+      let val = parseFloat(document.getElementById("s" + i).value);
+      if (!isNaN(val) && val >= 0) {
+        sum += val;
+        count++;
       }
     }
-  </script>
+
+    if (count > 0) {
+      let cgpa = sum / count;
+      document.getElementById("result").innerText =
+        "🎓 Your Overall CGPA is: " + cgpa.toFixed(2);
+    } else {
+      document.getElementById("result").innerText =
+        "⚠️ Please enter at least one SGPA.";
+    }
+  }
+</script>
+
 </body>
 </html>
+
