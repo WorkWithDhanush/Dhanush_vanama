@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSE SGPA Calculator (Semester II)</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background: #f4f6f9;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 40px;
+    }
+    .outer-box {
+      background: #fff;
+      border-radius: 16px;
+      padding: 30px 25px;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      animation: fadeIn 0.5s ease;
+    }
+    .outer-box h2 {
+      text-align: center;
+      color: #0d6efd;
+      font-size: 26px;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 15px;
+      margin: 10px 0 5px;
+      font-weight: 600;
+      color: #333;
+    }
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+      background-color: #fafafa;
+      transition: all 0.2s ease;
+    }
+    select:focus {
+      border-color: #0d6efd;
+      outline: none;
+      box-shadow: 0 0 5px rgba(13,110,253,0.3);
+    }
+    .btn {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .sgpa-btn {
+      background-color: #0d6efd;
+      color: #fff;
+    }
+    .sgpa-btn:hover {
+      background-color: #084298;
+      transform: scale(1.03);
+    }
+    h3#result {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #2e8b57;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(10px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+  <div class="outer-box">
+    <h2>CSE SGPA Calculator (Semester II)</h2>
+    <form id="gradeForm">
+      <p>CS121 - Integral Calculus and Transforms (3 Credits)</p>
+      <select name="grade">
+        <option value="">-- Select Grade --</option>
+        <option value="A+">A+</option><option value="A">A</option>
+        <option value="B">B</option><option value="C">C</option>
+        <option value="D">D</option><option value="E">E</option>
+        <option value="F">F</option>
+      </select>
+
+      <p>CS122 - Engineering Chemistry (2 Credits)</p>
+      <select name="grade">
+        <option value="">-- Select Grade --</option>
+        <option value="A+">A+</option><option value="A">A</option>
+        <option value="B">B</option><option value="C">C</option>
+        <option value="D">D</option><option value="E">E</option>
+        <option value="F">F</option>
+      </select>
+
+      <p>CS123 - Communicative English (2 Credits)</p>
+      <select name="grade">
+        <option value="">-- Select Grade --</option>
+        <option value="A+">A+</option><option value="A">A</option>
+        <option value="B">B</option><option value="C">C</option>
+        <option value="D">D</option><option value="E">E</option>
+        <option value="F">F</option>
+      </select>
+
+      <p>CS124 - Digital Logic Design (3 Credits)</p>
+      <select name="grade">
+        <option value="">-- Select Grade --</option>
+        <option value="A+">A+</option><option value="A">A</option>
+        <option value="B">B</option><option value="C">C</option>
+        <option value="D">D</option><option value="E">E</option>
+        <option value="F">F</option>
+      </select>
+
+      <p>CS125 - Python Programming (2 Credits)</p>
+      <select name="grade">
+        <option value="">-- Select Grade --</option>
+        <option value="A+">A+</option><option value="A">A</option>
+        <option value="B">B</option><option value="C">C</option>
+        <option value="D">D</option><option value="E">E</option>
+        <option value="F">F</option>
+      </select>
+
+      <p>CS126 - Data Structures (4 Credits)</p>
+      <select name="grade">
+        <option value="">-- Select Grade --</option>
+        <option value="A+">A+</option><option value="A">A</option>
+        <option value="B">B</option><option value="C">C</option>
+        <option value="D">D</option><option value="E">E</option>
+        <option value="F">F</option>
+      </select>
+
+      <p>CS161 - Engineering Chemistry Lab (1 Credit)</p>
+      <select name="grade">
+        <option value="">-- Select Grade --</option>
+        <option value="A+">A+</option><option value="A">A</option>
+        <option value="B">B</option><option value="C">C</option>
+        <option value="D">D</option><option value="E">E</option>
+        <option value="F">F</option>
+      </select>
+
+      <p>CS162 - Communicative English Lab (1 Credit)</p>
+      <select name="grade">
+        <option value="">-- Select Grade --</option>
+        <option value="A+">A+</option><option value="A">A</option>
+        <option value="B">B</option><option value="C">C</option>
+        <option value="D">D</option><option value="E">E</option>
+        <option value="F">F</option>
+      </select>
+
+      <p>CS163 - Python Programming Lab (1 Credit)</p>
+      <select name="grade">
+        <option value="">-- Select Grade --</option>
+        <option value="A+">A+</option><option value="A">A</option>
+        <option value="B">B</option><option value="C">C</option>
+        <option value="D">D</option><option value="E">E</option>
+        <option value="F">F</option>
+      </select>
+
+      <p>CS164 - Data Structures Lab (1.5 Credits)</p>
+      <select name="grade">
+        <option value="">-- Select Grade --</option>
+        <option value="A+">A+</option><option value="A">A</option>
+        <option value="B">B</option><option value="C">C</option>
+        <option value="D">D</option><option value="E">E</option>
+        <option value="F">F</option>
+      </select>
+
+      <p>CS165 - Health & Wellness, Yoga and Sports (0.5 Credit)</p>
+      <select name="grade">
+        <option value="">-- Select Grade --</option>
+        <option value="A+">A+</option><option value="A">A</option>
+        <option value="B">B</option><option value="C">C</option>
+        <option value="D">D</option><option value="E">E</option>
+        <option value="F">F</option>
+      </select>
+
+      <button type="button" class="btn sgpa-btn" onclick="calculateSGPA()">Calculate SGPA</button>
+    </form>
+    <h3 id="result"></h3>
+  </div>
+
+  <script>
+    const grades = {
+      "A+": 10,
+      "A": 9,
+      "B": 8,
+      "C": 7,
+      "D": 6,
+      "E": 5,
+      "F": 0
+    };
+
+    const credits = [3,2,2,3,2,4,1,1,1,1.5,0.5];
+
+    function calculateSGPA() {
+      const selects = document.querySelectorAll("select[name='grade']");
+      let totalPoints = 0, totalCredits = 0;
+
+      selects.forEach((select, i) => {
+        const grade = select.value;
+        if (grade !== "") {
+          const gp = grades[grade];
+          totalPoints += gp * credits[i];
+          totalCredits += credits[i];
+        }
+      });
+
+      const result = document.getElementById("result");
+      if (totalCredits > 0) {
+        const sgpa = totalPoints / totalCredits;
+        result.innerText = "🎓 Your SGPA is: " + sgpa.toFixed(2);
+      } else {
+        result.innerText = "⚠️ Please select grades for all subjects.";
+      }
+    }
+  </script>
+</body>
+</html>
