@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CGPA Calculator (R-24) - IT</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: #f4f6f9;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 40px;
+    }
+
+    .container {
+      background: #fff;
+      width: 500px;
+      max-width: 90%;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+
+    h1.main {
+      text-align: center;
+      color: #8B0000;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .years {
+      font-size: 18px;
+      list-style-type: upper-roman;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 25px;
+      padding: 0 10px;
+    }
+
+    .years li a {
+      text-decoration: none;
+      color: #444;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .years li a:hover {
+      color: #8B0000;
+    }
+
+    h2 {
+      margin: 15px 0;
+      font-size: 20px;
+      text-align: center;
+      color: #333;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    form p {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 16px;
+    }
+
+    input[type="number"] {
+      width: 100px;
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+      transition: all 0.2s ease;
+    }
+
+    input[type="number"]:focus {
+      border-color: #8B0000;
+      outline: none;
+      box-shadow: 0 0 5px rgba(139,0,0,0.3);
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px;
+      background: #8B0000;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background: #a52a2a;
+      transform: scale(1.03);
+    }
+
+    #result {
+      margin-top: 25px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      color: #2e8b57;
+    }
+
+    /* Footer (Builder Credits) */
+    .footer {
+      margin-top: 25px;
+      text-align: center;
+      font-size: 14px;
+      color: #555;
+      opacity: 0.8;
+      border-top: 1px solid #ddd;
+      padding-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="main">CGPA CALCULATOR (R-24)</h1>
+
+    <ol class="years">
+      <li><a href="efirst.html">I YEAR</a></li>
+      <li><a href="esecond.html">II YEAR</a></li>
+      <li><a href="ethird.html">III YEAR</a></li>
+      <li><a href="efourth.html">IV YEAR</a></li>
+    </ol>
+
+    <h2>Enter Your SGPA</h2>
+
+    <form id="cgpaForm">
+      <p>Semester 1: <input type="number" step="0.01" id="s1"></p>
+      <p>Semester 2: <input type="number" step="0.01" id="s2"></p>
+      <p>Semester 3: <input type="number" step="0.01" id="s3"></p>
+      <p>Semester 4: <input type="number" step="0.01" id="s4"></p>
+      <p>Semester 5: <input type="number" step="0.01" id="s5"></p>
+      <p>Semester 6: <input type="number" step="0.01" id="s6"></p>
+      <p>Semester 7: <input type="number" step="0.01" id="s7"></p>
+      <p>Semester 8: <input type="number" step="0.01" id="s8"></p>
+
+      <button type="button" onclick="calculateCGPA()">Calculate CGPA</button>
+    </form>
+
+    <h2 id="result"></h2>
+
+    <!-- Footer with Builder Details -->
+    <div class="footer">
+      🔧 Built by <strong>Dhanush vanama</strong> | Y24IT170 | Department of IT | 
+    </div>
+  </div>
+
+  <script>
+  function calculateCGPA() {
+    let sum = 0, count = 0;
+
+    for (let i = 1; i <= 8; i++) {
+      let val = parseFloat(document.getElementById("s" + i).value);
+      if (!isNaN(val) && val >= 0) {
+        sum += val;
+        count++;
+      }
+    }
+
+    if (count > 0) {
+      let cgpa = sum / count;
+      document.getElementById("result").innerText =
+        "🎓 Your Overall CGPA is: " + cgpa.toFixed(2);
+    } else {
+      document.getElementById("result").innerText =
+        "⚠️ Please enter at least one SGPA.";
+    }
+  }
+</script>
+
+</body>
+</html>
